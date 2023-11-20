@@ -9,12 +9,13 @@ class Recept(models.Model):
     autor = models.ForeignKey('Autor', blank=True, null=True, on_delete=models.SET_NULL)
     day_time = models.ManyToManyField('DayTime', blank=True, null=True)
     avg_rating = models.FloatField(blank=True, null=True)
+    // možná vymzat avg rating z teto tabulky
 
     def __str__(self):
         return f"{self.name} ({self.year})"
 
-    def genres_display(self):
-        return ", ".join([i.name for i in self.genres.all()])
+    def day_time_display(self):
+        return ", ".join([i.name for i in self.day_time.all()])
 
 
 class Autor(models.Model):
@@ -41,3 +42,5 @@ class Coach(models.Model):
     name = models.CharField(max_length=200)
     age = models.IntegerField()
     info = models.TextField(blank=True)
+
+    //vlastni tabulka na ingredience, pomoci ManyToManyField s atributy navic
