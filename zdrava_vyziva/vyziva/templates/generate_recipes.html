@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Generated Recipes</h1>
+  {% for recipe in recipes %}
+    <h2>{{ recipe.name }}</h2>
+    <p>{{ recipe.description }}</p>
+    <p>Calories: {{ recipe.calories }}</p>
+    <p>Ingredients: {{ recipe.ingredients_display }}</p>
+    <!-- Add other recipe details as needed -->
+  {% endfor %}
+{% endblock %}

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'zdrava_vyziva',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,6 +67,9 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = 'recipe_generator'
+LOGOUT_REDIRECT_URL = 'recipe_generator'
 
 WSGI_APPLICATION = 'zdrava_vyziva.wsgi.application'
 

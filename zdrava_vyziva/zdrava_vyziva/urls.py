@@ -15,8 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from vyziva.views import recipe_generator, user_login, user_register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', recipe_generator, name='recipe_generator'),
+    path('login/', user_login, name='user_login'),
+    path('register/', user_register, name='user_register')
 ]
