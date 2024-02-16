@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Recept
+from django.contrib.auth.models import User
 
 class CommentForm(forms.Form):
     author = forms.CharField(required=False, widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Pepa z Depa" }))
@@ -20,4 +21,5 @@ class RecipeGeneratorForm(forms.Form):
 
 class UserRegistrationForm(UserCreationForm):
     class Meta:
+        model= User
         fields = ['username', 'email', 'password1', 'password2']

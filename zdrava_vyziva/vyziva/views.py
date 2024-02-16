@@ -2,7 +2,7 @@
 from .models import Recept, Autor, DayTime, Coach, Comment, Ingredients
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RecipeGeneratorForm, UserRegistrationForm, CommentForm, ContactForm
 
@@ -32,6 +32,7 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
 
 def user_register(request):
     if request.method == 'POST':
